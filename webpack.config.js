@@ -39,8 +39,12 @@ module.exports = (env, argv) => {
 			rules: [
 				{
 					test: /\.tsx?$/,
-					exclude: /node_modules/,
-					loader: 'ts-loader'
+					use: [{
+						loader: 'ts-loader',
+						options: {
+							transpileOnly: true
+						},
+					}]
 				},
 				{
 					test: /\.s[ac]ss$/i,
